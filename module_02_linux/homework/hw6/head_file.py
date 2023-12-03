@@ -29,14 +29,21 @@ hello wo
 hello world!
 """
 
-from flask import Flask
+from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
+@app.route("/preview/<int:size>/<path:relative_path>")
+def preview(size: int, relative_path: str):
+    abs_path = os.path.abspath(relative_path)
 
-@app.route("/head_file/<int:size>/<path:relative_path>")
-def head_file(size: int, relative_path: str):
-    ...
+    with open(abs_path, 'r') as file:
+        result_text = file.read(size)
+        result_size = len(result_text)
+
+    return render_template('preview.html', abs_path=abs_path, result_size=result_size, result_text=result_text)
+
 
 
 if __name__ == "__main__":

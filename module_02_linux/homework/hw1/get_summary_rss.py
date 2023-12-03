@@ -15,10 +15,22 @@ $ ps aux > output_file.txt
 
 
 def get_summary_rss(ps_output_file_path: str) -> str:
-    ...
-
+    with open(ps_output_file_path, 'r', encoding='utf8') as output_file:
+        lines = output_file.readlines()[1:]
+        count = 0
+        for line in lines:
+            columns = line.split()
+            count += int(columns[5])
+        if len(str(count)) <= 3:
+            return f'{count}Б'
+        elif len(str(count)) > 3:
+            return f'{round(count/1000)}Кб'
+        elif len(str(count)) > 6:
+            return f'{round(count/1000000)}Мб'
+        elif len(str(count)) > 9:
+            return f'{round(count/1000000000)}Гб'
 
 if __name__ == '__main__':
-    path: str = 'PATH_TO_OUTPUT_FILE'
+    path: str = '/home/marina/output_file.txt'
     summary_rss: str = get_summary_rss(path)
     print(summary_rss)
