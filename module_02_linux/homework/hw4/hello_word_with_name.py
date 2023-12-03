@@ -13,13 +13,13 @@ from datetime import datetime
 app = Flask(__name__)
 
 weekdays = ["понедельника", "вторника", "среды", "четверга", "пятницы", "субботы", "воскресенья"]
-@app.route('/hello-world/<name>')
-def hello_world(name):
-    today_weekday = weekdays[datetime.today().weekday()]
-    return f"Привет, {name}. Хорошего {today_weekday}!" if today_weekday in (0, 1, 3, 6) else f"Привет, {name}. Хорошей {today_weekday}!"
 
-name = input('Введите имя: ')
-print(hello_world(name))
+@app.route('/hello-world/')
+def hello_world():
+    today_weekday = weekdays[datetime.today().weekday()]
+    return f"Привет, Петя. Хорошего {today_weekday}!" if datetime.today().weekday() in (0, 1, 3, 6) \
+        else f"Привет, Петя. Хорошей {today_weekday}!"
+
 
 if __name__ == '__main__':
     app.run(debug=True)

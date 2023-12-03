@@ -33,9 +33,6 @@ def max_number(numbers):
     else:
         return "Нет переданных чисел"
 
-nums = 'max_number/1/1/1/3/4/2/5/3/9/4/1/2/1'
-
-print(max_number(nums))
 
 if __name__ == "__main__":
     app.run(debug=True)

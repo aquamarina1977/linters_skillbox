@@ -42,7 +42,8 @@ def preview(size: int, relative_path: str):
         result_text = file.read(size)
         result_size = len(result_text)
 
-    return render_template('preview.html', abs_path=abs_path, result_size=result_size, result_text=result_text)
+    return (f'<p>Absolute Path: {abs_path } Result Size: {result_size}</p><br>'
+            f'<pre>{result_text}</pre>')
 
 
 
