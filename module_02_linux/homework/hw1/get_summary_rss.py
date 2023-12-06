@@ -33,6 +33,6 @@ def get_summary_rss(ps_output_file_path: str) -> str:
 if __name__ == '__main__':
     # TODO данный файл должен лежать в текущей папке чтобы задание можно было запустить
     # TODO прошу доработать, и изменить путь до файла
-    path: str = '/home/marina/output_file.txt'
+    path: str = 'output_file.txt'
     summary_rss: str = get_summary_rss(path)
     print(summary_rss)

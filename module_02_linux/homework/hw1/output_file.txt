@@ -1,0 +1,187 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1 166796 11980 ?        Ss   06:33   0:00 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    06:33   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   06:33   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   06:33   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   06:33   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   06:33   0:00 [netns]
+root           8  0.0  0.0      0     0 ?        I<   06:33   0:00 [kworker/0:0H-kblockd]
+root          10  0.0  0.0      0     0 ?        I<   06:33   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        I    06:33   0:00 [rcu_tasks_kthread]
+root          12  0.0  0.0      0     0 ?        I    06:33   0:00 [rcu_tasks_rude_kthread]
+root          13  0.0  0.0      0     0 ?        I    06:33   0:00 [rcu_tasks_trace_kthread]
+root          14  0.0  0.0      0     0 ?        S    06:33   0:00 [ksoftirqd/0]
+root          15  0.0  0.0      0     0 ?        I    06:33   0:00 [rcu_preempt]
+root          16  0.0  0.0      0     0 ?        S    06:33   0:00 [migration/0]
+root          17  0.0  0.0      0     0 ?        S    06:33   0:00 [idle_inject/0]
+root          19  0.0  0.0      0     0 ?        S    06:33   0:00 [cpuhp/0]
+root          20  0.0  0.0      0     0 ?        S    06:33   0:00 [kdevtmpfs]
+root          21  0.0  0.0      0     0 ?        I<   06:33   0:00 [inet_frag_wq]
+root          22  0.0  0.0      0     0 ?        S    06:33   0:00 [kauditd]
+root          23  0.0  0.0      0     0 ?        S    06:33   0:00 [khungtaskd]
+root          24  0.0  0.0      0     0 ?        S    06:33   0:00 [oom_reaper]
+root          27  0.0  0.0      0     0 ?        I<   06:33   0:00 [writeback]
+root          28  0.0  0.0      0     0 ?        S    06:33   0:00 [kcompactd0]
+root          29  0.0  0.0      0     0 ?        SN   06:33   0:00 [ksmd]
+root          30  0.0  0.0      0     0 ?        SN   06:33   0:00 [khugepaged]
+root          31  0.0  0.0      0     0 ?        I<   06:33   0:00 [kintegrityd]
+root          32  0.0  0.0      0     0 ?        I<   06:33   0:00 [kblockd]
+root          33  0.0  0.0      0     0 ?        I<   06:33   0:00 [blkcg_punt_bio]
+root          34  0.0  0.0      0     0 ?        I<   06:33   0:00 [tpm_dev_wq]
+root          35  0.0  0.0      0     0 ?        I<   06:33   0:00 [ata_sff]
+root          36  0.0  0.0      0     0 ?        I<   06:33   0:00 [md]
+root          37  0.0  0.0      0     0 ?        I<   06:33   0:00 [edac-poller]
+root          38  0.0  0.0      0     0 ?        I<   06:33   0:00 [devfreq_wq]
+root          39  0.0  0.0      0     0 ?        S    06:33   0:00 [watchdogd]
+root          41  0.0  0.0      0     0 ?        S    06:33   0:00 [kswapd0]
+root          42  0.0  0.0      0     0 ?        S    06:33   0:00 [ecryptfs-kthread]
+root          43  0.0  0.0      0     0 ?        I<   06:33   0:00 [kthrotld]
+root          44  0.0  0.0      0     0 ?        I<   06:33   0:00 [acpi_thermal_pm]
+root          45  0.0  0.0      0     0 ?        S    06:33   0:00 [scsi_eh_0]
+root          46  0.0  0.0      0     0 ?        I<   06:33   0:00 [scsi_tmf_0]
+root          47  0.0  0.0      0     0 ?        S    06:33   0:00 [scsi_eh_1]
+root          48  0.0  0.0      0     0 ?        I<   06:33   0:00 [scsi_tmf_1]
+root          50  0.0  0.0      0     0 ?        I    06:33   0:00 [kworker/u2:4-events_unbound]
+root          52  0.0  0.0      0     0 ?        I<   06:33   0:00 [mld]
+root          53  0.0  0.0      0     0 ?        I<   06:33   0:00 [ipv6_addrconf]
+root          61  0.0  0.0      0     0 ?        I<   06:33   0:00 [kstrp]
+root          63  0.0  0.0      0     0 ?        I<   06:33   0:00 [zswap-shrink]
+root          64  0.0  0.0      0     0 ?        I<   06:33   0:00 [kworker/u3:0]
+root          68  0.0  0.0      0     0 ?        I<   06:33   0:00 [charger_manager]
+root         111  0.0  0.0      0     0 ?        S    06:33   0:00 [scsi_eh_2]
+root         113  0.0  0.0      0     0 ?        I<   06:33   0:00 [scsi_tmf_2]
+root         117  0.0  0.0      0     0 ?        I<   06:33   0:00 [kworker/0:2H-kblockd]
+root         138  0.0  0.0      0     0 ?        S    06:33   0:00 [jbd2/sda3-8]
+root         139  0.0  0.0      0     0 ?        I<   06:33   0:00 [ext4-rsv-conver]
+root         178  0.0  0.2  48552 20612 ?        S<s  06:33   0:00 /lib/systemd/systemd-journald
+root         211  0.0  0.0      0     0 ?        S    06:33   0:00 [irq/18-vmwgfx]
+root         238  0.0  0.1  26804  7040 ?        Ss   06:33   0:00 /lib/systemd/systemd-udevd
+root         308  0.0  0.0      0     0 ?        I<   06:33   0:00 [cryptd]
+systemd+     397  0.0  0.0  14828  6784 ?        Ss   06:33   0:01 /lib/systemd/systemd-oomd
+systemd+     399  0.0  0.2  25664 14052 ?        Ss   06:33   0:00 /lib/systemd/systemd-resolved
+systemd+     400  0.0  0.1  89380  7424 ?        Ssl  06:33   0:00 /lib/systemd/systemd-timesyncd
+root         806  0.0  0.1 239976  7724 ?        Ssl  06:33   0:00 /usr/libexec/accounts-daemon
+root         807  0.0  0.0   2812  1920 ?        Ss   06:33   0:00 /usr/sbin/acpid
+avahi        810  0.0  0.0   7624  4096 ?        Ss   06:33   0:00 avahi-daemon: running [marina-VirtualBox.local]
+root         811  0.0  0.0   9496  2944 ?        Ss   06:33   0:00 /usr/sbin/cron -f -P
+message+     812  0.0  0.0  10892  6272 ?        Ss   06:33   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         815  0.0  0.2 260944 18736 ?        Ssl  06:33   0:00 /usr/sbin/NetworkManager --no-daemon
+root         830  0.0  0.3  41060 21376 ?        Ss   06:33   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         835  0.0  0.1 236952 10148 ?        Ssl  06:33   0:00 /usr/libexec/polkitd --no-debug
+root         836  0.0  0.1 240060  7552 ?        Ssl  06:33   0:00 /usr/libexec/power-profiles-daemon
+syslog       837  0.0  0.0 222400  6016 ?        Ssl  06:33   0:00 /usr/sbin/rsyslogd -n -iNONE
+root         845  0.0  0.6 736360 48256 ?        Ssl  06:33   0:01 /usr/lib/snapd/snapd
+root         847  0.0  0.1 236380  7040 ?        Ssl  06:33   0:00 /usr/libexec/switcheroo-control
+root         858  0.0  0.1  23636  8112 ?        Ss   06:33   0:00 /lib/systemd/systemd-logind
+root         861  0.0  0.1 393444 13664 ?        Ssl  06:33   0:00 /usr/libexec/udisks2/udisksd
+root         862  0.0  0.0  16496  6528 ?        Ss   06:33   0:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+avahi        874  0.0  0.0   7440  1280 ?        S    06:33   0:00 avahi-daemon: chroot helper
+root         901  0.0  0.1 317956 12496 ?        Ssl  06:33   0:00 /usr/sbin/ModemManager
+root         904  0.0  0.2  73012 14080 ?        Ss   06:33   0:00 /usr/sbin/cupsd -l
+root         920  0.0  0.1 241220  9216 ?        Ssl  06:33   0:00 /usr/sbin/gdm3
+root         946  0.0  0.3 118052 23424 ?        Ssl  06:33   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         947  0.0  0.1 170460 10496 ?        Sl   06:33   0:00 gdm-session-worker [pam/gdm-autologin]
+marina       962  0.0  0.1  17976 10752 ?        Ss   06:33   0:00 /lib/systemd/systemd --user
+marina       963  0.0  0.0 104248  5676 ?        S    06:33   0:00 (sd-pam)
+root         980  0.0  0.1 172624 11776 ?        Ssl  06:33   0:00 /usr/sbin/cups-browsed
+kernoops     985  0.0  0.0  13084  2188 ?        Ss   06:33   0:00 /usr/sbin/kerneloops --test
+kernoops     987  0.0  0.0  13084  2180 ?        Ss   06:33   0:00 /usr/sbin/kerneloops
+marina      1031  0.0  0.0  39572  6528 ?        S<sl 06:33   0:00 /usr/bin/pipewire
+marina      1032  0.0  0.0  23460  6656 ?        Ssl  06:33   0:00 /usr/bin/pipewire-media-session
+marina      1034  0.0  0.3 1684556 26772 ?       S<sl 06:33   0:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+marina      1035  0.0  0.2  76144 14208 ?        Ss   06:33   0:00 /snap/snapd-desktop-integration/83/usr/bin/snapd-desktop-integration
+marina      1037  0.0  0.1 1005484 8064 ?        Ssl  06:33   0:00 /usr/bin/ubuntu-report service
+marina      1039  0.0  0.1 388380  8096 ?        SLl  06:33   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+rtkit       1043  0.0  0.0 154000  3328 ?        SNsl 06:33   0:00 /usr/libexec/rtkit-daemon
+marina      1055  0.0  0.0 162388  6144 tty2     Ssl+ 06:33   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+marina      1057  0.0  0.0   9764  5888 ?        Ss   06:33   0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+marina      1061  0.0  0.2 223040 15744 tty2     Sl+  06:33   0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+marina      1070  0.0  0.1 240648  8192 ?        Ssl  06:33   0:00 /usr/libexec/gvfsd
+marina      1094  0.0  0.0 380888  6912 ?        Sl   06:33   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+marina      1124  0.0  0.0  91908  5504 ?        Ssl  06:33   0:00 /usr/libexec/gnome-session-ctl --monitor
+marina      1138  0.0  0.2 658476 17920 ?        Ssl  06:33   0:00 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+marina      1172  8.1  6.2 3844176 434108 ?      Rsl  06:33   2:37 /usr/bin/gnome-shell
+marina      1176  0.0  0.1 309612  7808 ?        Sl   06:33   0:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+marina      1184  0.0  0.0   8560  4608 ?        S    06:33   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus
+marina      1221  0.0  0.0 236148  6272 ?        Ssl  06:33   0:00 /usr/libexec/xdg-permission-store
+marina      1223  0.0  0.3 665116 21888 ?        Sl   06:33   0:00 /usr/libexec/gnome-shell-calendar-server
+marina      1232  0.0  0.4 682796 33200 ?        Ssl  06:33   0:00 /usr/libexec/evolution-source-registry
+marina      1239  0.0  1.2 726152 83236 ?        SLl  06:33   0:00 /usr/libexec/goa-daemon
+root        1240  0.0  0.1 315972  8960 ?        Ssl  06:33   0:00 /usr/libexec/upowerd
+marina      1241  0.0  0.0 156960  6016 ?        Ssl  06:33   0:00 /usr/libexec/dconf-service
+marina      1245  0.0  0.0 163076  6784 ?        Ssl  06:33   0:00 /usr/libexec/gvfsd-metadata
+marina      1258  0.0  0.7 754020 51480 ?        Ssl  06:33   0:00 /usr/libexec/evolution-calendar-factory
+marina      1268  0.0  0.2 412132 15488 ?        Sl   06:33   0:00 /usr/libexec/goa-identity-service
+marina      1275  0.0  0.1 316056 10880 ?        Ssl  06:33   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+marina      1288  0.0  0.4 672232 29312 ?        Ssl  06:33   0:00 /usr/libexec/evolution-addressbook-factory
+marina      1289  0.0  0.1 237416  7168 ?        Ssl  06:33   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+marina      1293  0.0  0.0 236460  6656 ?        Ssl  06:33   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+marina      1297  0.0  0.1 315204  8320 ?        Ssl  06:33   0:00 /usr/libexec/gvfs-afc-volume-monitor
+marina      1304  0.0  0.1 237244  7680 ?        Ssl  06:33   0:00 /usr/libexec/gvfs-goa-volume-monitor
+root        1329  0.2  0.6 381284 42872 ?        Ssl  06:33   0:04 /usr/libexec/packagekitd
+marina      1336  0.0  0.1 314860  9216 ?        Sl   06:33   0:00 /usr/libexec/gvfsd-trash --spawner :1.6 /org/gtk/gvfs/exec_spaw/0
+marina      1347  0.0  0.4 2599504 27920 ?       Sl   06:33   0:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+marina      1350  0.0  0.1 162680  7552 ?        Sl   06:33   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+marina      1358  0.0  0.0   2888  1536 ?        Ss   06:33   0:00 sh -c /usr/bin/ibus-daemon --panel disable $([ "$XDG_SESSION_TYPE" = "x11" ] && echo "--xim")
+marina      1359  0.0  0.0 310424  6912 ?        Ssl  06:33   0:00 /usr/libexec/gsd-a11y-settings
+marina      1360  0.0  0.3 451200 25860 ?        Ssl  06:33   0:00 /usr/libexec/gsd-color
+marina      1361  0.0  0.2 375460 16384 ?        Ssl  06:33   0:00 /usr/libexec/gsd-datetime
+marina      1362  0.0  0.1 311924  8064 ?        Ssl  06:33   0:00 /usr/libexec/gsd-housekeeping
+marina      1363  0.0  0.3 340552 22532 ?        Ssl  06:33   0:00 /usr/libexec/gsd-keyboard
+marina      1364  0.0  0.3 643004 27268 ?        Ssl  06:33   0:00 /usr/libexec/gsd-media-keys
+marina      1365  0.0  0.3 376820 26116 ?        Ssl  06:33   0:00 /usr/libexec/gsd-power
+marina      1366  0.0  0.1 249852 11392 ?        Ssl  06:33   0:00 /usr/libexec/gsd-print-notifications
+marina      1373  0.0  0.0 457856  6912 ?        Ssl  06:33   0:00 /usr/libexec/gsd-rfkill
+marina      1375  0.0  0.1 389348 12476 ?        Sl   06:33   0:00 /usr/bin/ibus-daemon --panel disable
+marina      1376  0.0  0.0 236288  6400 ?        Ssl  06:33   0:00 /usr/libexec/gsd-screensaver-proxy
+marina      1377  0.0  0.1 465932 10880 ?        Ssl  06:33   0:00 /usr/libexec/gsd-sharing
+marina      1378  0.0  0.1 459768  8448 ?        Ssl  06:33   0:00 /usr/libexec/gsd-smartcard
+marina      1379  0.0  0.1 319344  9728 ?        Ssl  06:33   0:00 /usr/libexec/gsd-sound
+marina      1395  0.0  0.3 341312 23044 ?        Ssl  06:33   0:00 /usr/libexec/gsd-wacom
+marina      1396  0.0  0.1 232264  7936 ?        Sl   06:33   0:00 /usr/libexec/gsd-disk-utility-notify
+marina      1436  0.0  0.9 819192 67064 ?        Sl   06:33   0:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+marina      1440  0.0  0.1 237304  7552 ?        Sl   06:33   0:00 /usr/libexec/ibus-dconf
+marina      1441  0.0  0.4 347832 29468 ?        Sl   06:33   0:00 /usr/libexec/ibus-extension-gtk3
+marina      1447  0.0  0.1 237260  7424 ?        Sl   06:33   0:00 /usr/libexec/ibus-portal
+marina      1485  0.0  0.2 342360 15104 ?        Sl   06:33   0:00 /usr/libexec/gsd-printer
+marina      1504  0.1  2.5 783528 175404 ?       Sl   06:33   0:02 /snap/snap-store/959/usr/bin/snap-store --gapplication-service
+marina      1535  0.0  0.1 163480  7552 ?        Sl   06:33   0:00 /usr/libexec/ibus-engine-simple
+colord      1581  0.0  0.1 245328 13340 ?        Ssl  06:33   0:00 /usr/libexec/colord
+marina      1587  0.0  0.4 719532 33356 ?        SNsl 06:33   0:00 /usr/libexec/tracker-miner-fs-3
+marina      1588  0.0  0.2 623856 13952 ?        Ssl  06:33   0:00 /usr/libexec/xdg-desktop-portal
+marina      1592  0.0  0.1 463172  7680 ?        Ssl  06:33   0:00 /usr/libexec/xdg-document-portal
+root        1597  0.0  0.0   2792  1792 ?        Ss   06:33   0:00 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+marina      1600  0.0  0.4 375848 28636 ?        Ssl  06:33   0:00 /usr/libexec/xdg-desktop-portal-gnome
+marina      1633  0.0  0.4 2599504 27796 ?       Sl   06:33   0:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+marina      1647  0.0  0.8 2795876 60380 ?       Sl   06:33   0:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 0:0:1280:800:1:27:0:70:0:0
+marina      1656  0.0  0.3 344596 25988 ?        Ssl  06:33   0:00 /usr/libexec/xdg-desktop-portal-gtk
+marina      1892  0.0  0.3 305988 22488 ?        Sl   06:33   0:00 /snap/snapd-desktop-integration/83/usr/bin/snapd-desktop-integration
+root        1951  0.0  0.4 467180 31848 ?        Ssl  06:33   0:00 /usr/libexec/fwupd/fwupd
+root        2237  0.0  0.0      0     0 ?        I<   06:33   0:00 [tls-strp]
+marina      3037  0.8  1.2 229088 88104 ?        S    06:34   0:15 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.7T43E2 -listen 4 -listen 5 -displayfd 6 -initfd 7
+marina      3041  0.0  1.1 528844 81216 ?        Ssl  06:34   0:00 /usr/libexec/gsd-xsettings
+marina      3071  0.0  0.3 194228 25444 ?        Sl   06:34   0:00 /usr/libexec/ibus-x11
+marina      3431  0.0  0.3 497352 26496 ?        Sl   06:34   0:00 /usr/bin/snap userd
+marina      4122  0.0  0.3 492064 25860 ?        Sl   06:34   0:00 update-notifier
+root        4773  0.0  0.0      0     0 ?        I    06:39   0:00 [kworker/0:0-events]
+root        5312  0.0  0.0      0     0 ?        I    06:42   0:00 [kworker/u2:1-events_unbound]
+root        5401  0.0  0.0      0     0 ?        I    06:48   0:00 [kworker/0:2-events]
+root        5766  0.0  0.0      0     0 ?        I    06:52   0:00 [kworker/u2:2-writeback]
+root        6905  0.0  0.0      0     0 ?        I    07:00   0:00 [kworker/u2:0-flush-8:0]
+root        7618  0.0  0.0      0     0 ?        I    07:01   0:00 [kworker/0:1-cgwb_release]
+root        7629  0.0  0.0      0     0 ?        I    07:02   0:00 [kworker/0:3-cgroup_destroy]
+marina      7671 26.2 25.5 6137284 1765364 ?     Sl   07:02   0:43 /snap/pycharm-community/355/jbr/bin/java -classpath /snap/pycharm-community/355/lib/platform-loader.jar:/snap/pycharm-community/355/lib/util.jar:/snap/pycharm-community/355/lib/app.jar:/snap/pycharm-community/355/lib/util-8.jar:/snap/pycharm-community/355/lib/util_rt.jar:/snap/pycharm-community/355/lib/jps-model.jar:/snap/pycharm-community/355/lib/stats.jar:/snap/pycharm-community/355/lib/protobuf.jar:/snap/pycharm-community/355/lib/external-system-rt.jar:/snap/pycharm-community/355/lib/intellij-test-discovery.jar:/snap/pycharm-community/355/lib/forms_rt.jar:/snap/pycharm-community/355/lib/rd.jar:/snap/pycharm-community/355/lib/externalProcess-rt.jar:/snap/pycharm-community/355/lib/annotations-java5.jar:/snap/pycharm-community/355/lib/app-client.jar:/snap/pycharm-community/355/lib/bouncy-castle.jar:/snap/pycharm-community/355/lib/byte-buddy-agent.jar:/snap/pycharm-community/355/lib/error-prone-annotations.jar:/snap/pycharm-community/355/lib/groovy.jar:/snap/pycharm-community/355/lib/grpc.jar:/snap/pycharm-community/355/lib/intellij-coverage-agent-1.0.723.jar:/snap/pycharm-community/355/lib/jetbrains-annotations.jar:/snap/pycharm-community/355/lib/jsch-agent.jar:/snap/pycharm-community/355/lib/junit4.jar:/snap/pycharm-community/355/lib/lib-client.jar:/snap/pycharm-community/355/lib/lib.jar:/snap/pycharm-community/355/lib/modules.jar -XX:ErrorFile=/home/marina/java_error_in_pycharm_%p.log -XX:HeapDumpPath=/home/marina/java_error_in_pycharm_.hprof -Xms256m -Xmx1500m -XX:ReservedCodeCacheSize=512m -XX:+UseG1GC -XX:SoftRefLRUPolicyMSPerMB=50 -XX:CICompilerCount=2 -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -XX:+IgnoreUnrecognizedVMOptions -XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend -ea -Dsun.io.useCanonCaches=false -Dsun.java2d.metal=true -Djbr.catch.SIGABRT=true -Djdk.http.auth.tunneling.disabledSchemes="" -Djdk.attach.allowAttachSelf=true -Djdk.module.illegalAccess.silent=true -Dkotlinx.coroutines.debug=off -Dsun.tools.attach.tmp.only=true -Dawt.lock.fair=true -Xmx2048m -Djb.vmOptionsFile=/home/marina/.config/JetBrains/PyCharmCE2023.2/pycharm64.vmoptions -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader -Didea.vendor.name=JetBrains -Didea.paths.selector=PyCharmCE2023.2 -Djna.boot.library.path=/snap/pycharm-community/355/lib/jna/amd64 -Dpty4j.preferred.native.folder=/snap/pycharm-community/355/lib/pty4j -Djna.nosys=true -Djna.noclasspath=true -Didea.platform.prefix=PyCharmCore -Dsplash=true -Daether.connector.resumeDownloads=false --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.ref=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.vm=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED --add-opens=java.base/sun.security.ssl=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED --add-opens=java.base/sun.net.dns=ALL-UNNAMED --add-opens=java.desktop/com.sun.java.swing.plaf.gtk=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt.event=ALL-UNNAMED --add-opens=java.desktop/java.awt.image=ALL-UNNAMED --add-opens=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED --add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED --add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.desktop/sun.font=ALL-UNNAMED --add-opens=java.desktop/sun.java2d=ALL-UNNAMED --add-opens=java.desktop/sun.swing=ALL-UNNAMED --add-opens=java.desktop/com.sun.java.swing=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED com.intellij.idea.Main
+marina      7800  0.0  0.0   3708  1920 ?        S    07:03   0:00 /snap/pycharm-community/355/bin/fsnotifier
+marina      7988  0.5  0.7 561360 51948 ?        Ssl  07:04   0:00 /usr/libexec/gnome-terminal-server
+marina      8006  0.0  0.0  11276  5376 pts/0    Ss   07:04   0:00 bash
+marina      8015 13.4  4.6 3501228 320376 ?      Sl   07:05   0:06 /snap/firefox/2987/usr/lib/firefox/firefox
+marina      8133  0.0  0.5 212064 38144 ?        Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -parentBuildID 20230807082803 -prefsLen 26920 -prefMapSize 232608 -appDir /snap/firefox/2987/usr/lib/firefox/browser {4cbab841-e280-4859-8592-a6564bf32687} 8015 true socket
+marina      8147  0.5  1.5 2442836 108596 ?      Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 27061 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {044ff388-d197-4ac1-9780-8849dda50c7b} 8015 true tab
+marina      8305  0.3  1.2 2422216 85136 ?       Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 32687 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {b331aa03-b291-4c2c-b014-a5eb61b5b49c} 8015 true tab
+marina      8562  9.1  3.6 2741272 254832 ?      Sl   07:05   0:03 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -prefsLen 29372 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {d132d42a-2bd2-4473-8073-055ba1c4a906} 8015 true tab
+marina      8568  0.0  0.8 2395788 59264 ?       Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 29372 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {0b8736e4-5fe4-46db-855f-666240623805} 8015 true tab
+marina      8576  0.0  0.8 2395792 59264 ?       Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 29372 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {1c50d4a8-0cd4-42d3-ac5b-4712ff507c1d} 8015 true tab
+marina      8626  0.0  0.8 2395788 59896 ?       Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 29481 -prefMapSize 232608 -jsInitLen 242416 -parentBuildID 20230807082803 -appDir /snap/firefox/2987/usr/lib/firefox/browser {6c3f5492-3167-436c-bf3d-f91d67684de6} 8015 true tab
+marina      8645  0.0  0.5 328820 40960 ?        Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -parentBuildID 20230807082803 -prefsLen 32850 -prefMapSize 232608 -appDir /snap/firefox/2987/usr/lib/firefox/browser {b8ce9291-b6d5-4ed8-8f00-fa8a86a8c290} 8015 true rdd
+marina      8651  0.0  0.6 331648 44672 ?        Sl   07:05   0:00 /snap/firefox/2987/usr/lib/firefox/firefox -contentproc -parentBuildID 20230807082803 -sandboxingKind 0 -prefsLen 32850 -prefMapSize 232608 -appDir /snap/firefox/2987/usr/lib/firefox/browser {fcffc8d9-f776-4d75-b40d-87f5ea326283} 8015 true utility
+marina      8699  0.0  0.0  12672  3328 pts/0    R+   07:05   0:00 ps aux

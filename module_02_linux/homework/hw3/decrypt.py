@@ -37,20 +37,17 @@ $ echo  ‘абраа..-.кадабра’ | python3 decrypt.py
 import sys
 
 
-def decrypt(encryption: str) -> str:
-    decrypted = ''
-    i = 0
-    while i < len(encryption):
-        if encryption[i:i + 2] == '..':
-            if len(decrypted) > 0:
-                decrypted = decrypted[:-1]
-            i += 2
-        elif encryption[i] == '.':
-            i += 1
-        else:
-            decrypted += encryption[i]
-            i += 1
-    return decrypted
+def decrypt(s: str) -> str:
+    result = []
+
+    for ch in s:
+        result.append(ch)
+        if len(result) > 2 and (result[-1], result[-2]) == ('.', '.'):
+            result.pop()
+            result.pop()
+            if result:
+                result.pop()
+    return ''.join(ch for ch in result if ch != '.')
 
 
 if __name__ == '__main__':
