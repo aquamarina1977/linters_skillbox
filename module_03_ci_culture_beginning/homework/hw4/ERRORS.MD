@@ -1,28 +1,19 @@
-# Ошибки #
-* Не импортирован модуль datetime
-> import datetime
-* Из текущей даты вычитается год рождения
-> return now.year - self.yob
-* Отсутствовало обращение к экземпляру класса, в следствие чего получалось, что переменная address не определена
-> return self.address is None
-* Метод is_homeless не соответствовал документации: returns True if address is not set, false in other case
-> return not self._address
-* Геттеры и сеттеры были написаны неправильно, без декоратора @property
-> * @property
-    def age(self)
-> * @property
-    def name(self) -> str:
-> * @name.setter
-    def name(self, name: str) -> None:
-> * @property
-    def address(self) -> str:
-> * @address.setter
-    def address(self, address: str) -> None:
-* Переменные в инициализаторе не были снабжены нижними подчёркиваниями
-> self._name: str = name
-  self._yob: int = year_of_birth
-  self._address: str = address
-* В сеттере name было неправильное присвоение: self.name = self.name
-> self._name = name
-* В сеттере address было сравнение вместо присвоения: self.address == address
-> self._address = address
+#Ошибки#
+* В методе set_name(self, name) необходимо изменить значение переменной self.name на значение переданное в параметре name. Исправленный код:
+
+> def set_name(self, name):
+    self.name = name
+* В методе set_address(self, address) ошибка в операторе сравнения. Вместо == нужно использовать = для присваивания значения переменной self.address. Исправленный код:
+
+> def set_address(self, address):
+    self.address = address
+* В методе is_homeless(self) ошибка при проверке переменной address. Вместо address нужно использовать self.address. Исправленный код:
+
+> def is_homeless(self):
+    '''
+    returns True if address is not set, false in other case
+    '''
+    return self.address is None
+
+
+
