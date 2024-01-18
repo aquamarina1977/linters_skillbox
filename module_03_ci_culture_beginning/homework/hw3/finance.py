@@ -7,21 +7,17 @@ storage = {}
 
 @app.route("/add/<date>/<int:number>")
 def add(date: str, number: int):
-    if not check_date_format(date):
-        return "Not Found", 404
-    year = int(date[:4])
-    month = int(date[4:6])
-    day = int(date[6:])
+    try:
+        year = int(date[:4])
+        month = int(date[4:6])
+        day = int(date[6:])
 
-    expense = storage.setdefault(year, {}).setdefault(month, {}).get(day, 0)
-    storage[year][month][day] = expense + number
-    print(expense)
-    print(storage)
-    return "Expense added successfully!"
+        expense = storage.setdefault(year, {}).setdefault(month, {}).get(day, 0)
+        storage[year][month][day] = expense + number
+        return "Expense added successfully!"
+    except ValueError:
+        return 'Internal Server Error', 500
 
-def check_date_format(date: str) -> bool:
-    if len(date) != 8 and not date.isdigit():
-        return False
 
 @app.route("/calculate/<int:year>")
 def calculate_year(year: int):

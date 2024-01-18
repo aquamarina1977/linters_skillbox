@@ -1,5 +1,6 @@
 import unittest
 from finance import app, storage
+
 class AppTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -11,13 +12,13 @@ class AppTestCase(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.data.decode(), "Expense added successfully!")
 
-            self.assertEqual(storage[2024][1][17], 150)
+            self.assertEqual(storage[2022][5][1], 50)
 
     def test_calculate_year_endpoint(self):
         with app.test_client() as client:
             response = client.get("/calculate/2022")
             self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.data.decode(), "No expenses found for 2022")
+            self.assertEqual(response.data.decode(), "Total expenses in 2022: 50")
 
     def test_calculate_month_endpoint(self):
         with app.test_client() as client:
@@ -27,9 +28,9 @@ class AppTestCase(unittest.TestCase):
 
     def test_add_endpoint_invalid_date_format(self):
         with app.test_client() as client:
-            response = client.get("/add/2022-05-01/50")
-            self.assertEqual(response.status_code, 404)
-            self.assertEqual(response.data.decode(), "Not Found")
+            response = client.get("/add/2022.05.01/50")
+            self.assertEqual(response.status_code, 500)
+            self.assertEqual(response.data.decode(), 'Internal Server Error')
 
     def test_calculate_year_endpoint_no_expenses(self):
         with app.test_client() as client:
