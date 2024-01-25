@@ -8,14 +8,19 @@
 /ps?arg=a&arg=u&arg=x
 """
 
-from flask import Flask
+from flask import Flask, request
+import shlex
+import os
 
 app = Flask(__name__)
 
 
 @app.route("/ps", methods=["GET"])
 def ps() -> str:
-    ...
+    args = request.args.getlist('arg')
+    cmd = "ps " + " ".join(shlex.quote(arg) for arg in args)
+    result = os.popen(cmd).read()
+    return f"<pre>{result}</pre>"
 
 
 if __name__ == "__main__":

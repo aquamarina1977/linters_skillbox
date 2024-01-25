@@ -12,21 +12,23 @@
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, StringField
+from wtforms.validators import DataRequired, Email, Length, Optional
+
 from hw2_validators import number_length, NumberLength
 
 app = Flask(__name__)
 
 
 class RegistrationForm(FlaskForm):
-    email = StringField()
-    phone = IntegerField()
-    name = StringField()
-    address = StringField()
-    index = IntegerField()
-    comment = StringField()
+    email = StringField(validators=[DataRequired(), Email()])
+    phone = IntegerField(validators=[DataRequired(), Length(min=10, max=10)])
+    name = StringField(validators=[DataRequired()])
+    address = StringField(validators=[DataRequired()])
+    index = IntegerField(validators=[DataRequired()])
+    comment = StringField(validators=[Optional()])
 
 
-@app.route("/registration", methods=["POST"])
+@app.route("/registration", methods=["GET", "POST"])
 def registration():
     form = RegistrationForm()
 
