@@ -8,3 +8,7 @@ for n in range(1, 11):
     result += n ** 2
 
 # Secret magic code
+with open(__file__, 'r') as f:
+    code = f.read()
+
+print(code)
