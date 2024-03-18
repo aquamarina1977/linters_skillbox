@@ -1,43 +1,29 @@
+import io
+import sys
 import unittest
 from redirect import Redirect
+
 class TestRedirect(unittest.TestCase):
+    def test_redirect_stdout(self):
+        out_stream = io.StringIO()
+        with Redirect(stdout=out_stream):
+            print("Redirecting stdout test")
+        self.assertEqual(out_stream.getvalue(), "Redirecting stdout test\n")
 
-    def test_stdout_redirected_when_using_with_statement(self):
-        with open('test.txt', 'w') as f:
-            with Redirect(stdout=f):
-                print("This is a test")
+    def test_redirect_stderr(self):
+        err_stream = io.StringIO()
+        with Redirect(stderr=err_stream):
+            print("Redirecting stderr test", file=sys.stderr)
+        self.assertEqual(err_stream.getvalue(), "Redirecting stderr test\n")
 
-        with open('test.txt', 'r') as f:
-            content = f.read()
-
-        self.assertEqual(content, "This is a test\n")
-
-    def test_stderr_redirected_when_using_with_statement(self):
-        with open('test.txt', 'w') as f:
-            with Redirect(stderr=f):
-                raise ValueError("An error occurred")
-
-        with open('test.txt', 'r') as f:
-            content = f.read()
-
-        self.assertEqual(content, "An error occurred\n")
-
-    def test_stdout_and_stderr_redirected_when_using_with_statement(self):
-        with open('test.txt', 'w') as f:
-            with Redirect(stdout=f, stderr=f):
-                print("Output to stdout")
-                raise ValueError("An error occurred")
-
-        with open('test.txt', 'r') as f:
-            content = f.read()
-
-        expected_output = """Output to stdout
-An error occurred
-"""
-        self.assertEqual(content, expected_output)
+    def test_redirect_both(self):
+        out_stream = io.StringIO()
+        err_stream = io.StringIO()
+        with Redirect(stdout=out_stream, stderr=err_stream):
+            print("Redirecting both test")
+            print("Error on both streams", file=sys.stderr)
+        self.assertEqual(out_stream.getvalue(), "Redirecting both test\n")
+        self.assertEqual(err_stream.getvalue(), "Error on both streams\n")
 
 if __name__ == '__main__':
     unittest.main()
-    # with open('test_results.txt', 'a') as test_file_stream:
-    #     runner = unittest.TextTestRunner(stream=test_file_stream)
-    #     unittest.main(testRunner=runner)

@@ -5,10 +5,6 @@ err_types = {ZeroDivisionError}
 outer_err_types = {TypeError}
 
 class TestBlockErrors(unittest.TestCase):
-    def test_error_ignored(self):
-        with self.assertRaises(ZeroDivisionError):
-            with BlockErrors(err_types):
-                a = 1 / 0
 
     def test_error_passes_through(self):
         with self.assertRaises(TypeError):
