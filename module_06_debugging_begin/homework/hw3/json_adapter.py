@@ -26,7 +26,24 @@ logger.info('Сообщение')
 """
 
 import logging
+import re
+def is_strong_password(password):
+    dictionary = set()
 
+    with open('/usr/share/dict/words', 'r') as file:
+        for line in file:
+            word = line.strip()
+            if len(word) > 4:
+                dictionary.add(word.lower())
+
+    words = re.findall(r'\w{5,}', password.lower())
+
+    for word in words:
+        if word in dictionary:
+            logger.error(f"Ненадлежащий пароль, содержит английское слово")
+            return False
+    logger.info("Сильный пароль")
+    return True
 
 class JsonAdapter(logging.LoggerAdapter):
     def process(self, msg, kwargs):
@@ -35,8 +52,15 @@ class JsonAdapter(logging.LoggerAdapter):
 
 
 if __name__ == '__main__':
+
     logger = JsonAdapter(logging.getLogger(__name__))
     logger.setLevel(logging.DEBUG)
     logger.info('Сообщение')
     logger.error('Кавычка)"')
     logger.debug("Еще одно сообщение")
+
+    password = "SecurePa****rd"
+    is_strong_password(password)
+
+
+

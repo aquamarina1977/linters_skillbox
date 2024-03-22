@@ -19,8 +19,14 @@ import getpass
 import hashlib
 import logging
 
-logger = logging.getLogger("password_checker")
+formatter = logging.Formatter("%(asctime)s (%(name)s) - %(levelname)s: %(message)s", "%H:%M:%S")
+file_handler = logging.FileHandler("stderr.txt")
+file_handler.setLevel(logging.ERROR)
+file_handler.setFormatter(formatter)
 
+logger = logging.getLogger("password_checker")
+logger.setLevel(logging.DEBUG)
+logger.addHandler(file_handler)
 
 def is_strong_password(password: str) -> bool:
     return True
@@ -28,7 +34,7 @@ def is_strong_password(password: str) -> bool:
 
 def input_and_check_password() -> bool:
     logger.debug("Начало input_and_check_password")
-    password: str = getpass.getpass()
+    password: str = getpass.getpass(prompt="")
 
     if not password:
         logger.warning("Вы ввели пустой пароль.")

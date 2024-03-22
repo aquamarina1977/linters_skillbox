@@ -10,6 +10,20 @@ from flask import Flask
 
 app = Flask(__name__)
 
+def get_available_pages():
+    return [endpoint for endpoint in app.url_map.iter_rules() if endpoint.endpoint != 'static']
+
+def generate_links(pages):
+    links = ''
+    for page in pages:
+        links += f'<a href="{page.rule}">{page.rule}</a><br>'
+    return links
+
+@app.errorhandler(404)
+def page_not_found(e):
+    pages = get_available_pages()
+    links = generate_links(pages)
+    return f'Страница не найдена. Доступные страницы:<br>{links}', 404
 
 @app.route('/dogs')
 def dogs():

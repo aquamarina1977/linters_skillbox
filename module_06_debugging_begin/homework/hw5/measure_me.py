@@ -9,8 +9,26 @@
 import logging
 import random
 from typing import List
+from datetime import datetime, timedelta
+from functools import wraps
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+handler = logging.FileHandler('log.txt')
+formatter = logging.Formatter(fmt="%(asctime)s, %(name)s, %(message)s")
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logging.shutdown()
+
+def loger(func: callable, logger=logger):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = datetime.now()
+        res = func(*args, **kwargs)
+        logger.info(f'{datetime.now() - start}')
+        return res
+    return wrapper
 
 
 def get_data_line(sz: int) -> List[int]:
@@ -61,6 +79,15 @@ def measure_me(nums: List[int]) -> List[List[int]]:
 
 if __name__ == "__main__":
     logging.basicConfig(level="DEBUG")
+    total = timedelta(hours=0, minutes=0, seconds=0, milliseconds=0)
     for it in range(15):
         data_line = get_data_line(10 ** 3)
-        measure_me(data_line)
+        decorated_function = loger(measure_me)
+        decorated_function(data_line)
+    with open('log.txt', 'r', encoding='utf8') as f:
+        data = f.readlines()
+        for i_el in data:
+            h, m, s = i_el.split(", ")[-1].split(":")
+            delta = timedelta(hours=int(h), minutes=int(m), seconds=int(s.split('.')[0]), milliseconds=int(s.split('.')[1]))
+            total += delta
+    print(total / 15)

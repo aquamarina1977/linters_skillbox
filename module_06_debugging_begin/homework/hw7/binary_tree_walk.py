@@ -70,8 +70,28 @@ def get_tree(max_depth: int, level: int = 1) -> Optional[BinaryTreeNode]:
     return node
 
 
-def restore_tree(path_to_log_file: str) -> BinaryTreeNode:
-    pass
+def restore_tree(path_to_log_file: str = "walk_log_1.txt") -> BinaryTreeNode:
+    nodes = {}
+
+    with open(path_to_log_file, 'r') as file:
+        for line in file:
+            parts = line.strip().split()
+            node_val = int(parts[1])
+            left_val = int(parts[2]) if parts[2] != 'None' else None
+            right_val = int(parts[3]) if parts[3] != 'None' else None
+
+            node = BinaryTreeNode(node_val)
+            nodes[node_val] = node
+
+            if left_val:
+                node.left = BinaryTreeNode(left_val)
+                nodes[left_val] = node.left
+
+            if right_val:
+                node.right = BinaryTreeNode(right_val)
+                nodes[right_val] = node.right
+
+    print(nodes[1])
 
 
 if __name__ == "__main__":
@@ -83,3 +103,4 @@ if __name__ == "__main__":
 
     root = get_tree(7)
     walk(root)
+
