@@ -1,8 +1,0 @@
-2024-03-24 09:57:52,606, dec_for_culc, Arguments: args=('2+3',)
-2024-03-24 09:57:52,610, dec_for_culc, Result: 5.0
-2024-03-24 09:59:26,951, decorator.py, Arguments: args=('2+3',)
-2024-03-24 09:59:26,951, decorator.py, Result: 5.0
-2024-03-24 10:02:29,006, culc_performance, decorator.py, 18 Arguments: args=('2+3',)
-2024-03-24 10:02:29,006, culc_performance, decorator.py, 20 Result: 5.0
-2024-03-24 10:12:57,284, culc_performance, decorator.py, 18 Arguments: args=('2+3',)
-2024-03-24 10:12:57,285, culc_performance, decorator.py, 20 Result: 5.0
