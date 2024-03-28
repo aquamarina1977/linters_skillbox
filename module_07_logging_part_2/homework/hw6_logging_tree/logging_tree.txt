@@ -1,0 +1,31 @@
+<--""
+   Level WARNING
+   |
+   o<--"app"
+   |   Level DEBUG
+   |   Handler Stream <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+   |     Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+   |   Handler <LevelFileHandler (DEBUG)>
+   |     Level DEBUG
+   |     Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+   |   Handler <LevelFileHandler (ERROR)>
+   |     Level ERROR
+   |     Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+   |   Handler TimedRotatingFile '/home/marina/PycharmProjects/python_advanced/module_07_logging_part_2/homework/hw6_logging_tree/utils.log' when='H' interval=3600 backupCount=10
+   |     Level INFO
+   |     Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+   |
+   o<--"utils"
+       Level DEBUG
+       Handler Stream <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+         Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+       Handler <LevelFileHandler (DEBUG)>
+         Level DEBUG
+         Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+       Handler <LevelFileHandler (ERROR)>
+         Level ERROR
+         Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+       Handler TimedRotatingFile '/home/marina/PycharmProjects/python_advanced/module_07_logging_part_2/homework/hw6_logging_tree/utils.log' when='H' interval=3600 backupCount=10
+         Level INFO
+         Formatter fmt='%(asctime)s | %(name)s | %(levelname)s | %(lineno)d | %(message)s' datefmt=None
+

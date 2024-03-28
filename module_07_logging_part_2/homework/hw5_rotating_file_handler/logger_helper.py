@@ -1,6 +1,6 @@
 import logging
 import sys
-
+from logging.handlers import TimedRotatingFileHandler
 
 class LevelFileHandler(logging.Handler):
     def __init__(self, level, filename):
@@ -33,6 +33,11 @@ def get_logger(name):
 
     debug_handler.setFormatter(formatter)
     error_handler.setFormatter(formatter)
+
+    file_handler = TimedRotatingFileHandler("utils.log", when="H", interval=1, backupCount=10)
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
     return logger
 

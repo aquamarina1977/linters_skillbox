@@ -1,10 +1,11 @@
 
 from typing import Union, Callable
 from operator import sub, mul, truediv, add
-import logging
+import logging.config
+from dconfig import dict_config
 
-logger = logging.getLogger("utils")
-logger.setLevel(logging.DEBUG)
+logging.config.dictConfig(dict_config)
+logger = logging.getLogger("module_logger")
 
 OPERATORS = {
     '+': add,

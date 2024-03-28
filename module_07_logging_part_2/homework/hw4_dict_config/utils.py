@@ -1,21 +1,11 @@
 
 from typing import Union, Callable
 from operator import sub, mul, truediv, add
-import logging
+import logging.config
+from dconfig import dict_config
 
-logger = logging.getLogger("string_to_operator")
-logger.setLevel(logging.ERROR)
-
-# Создаем обработчик для вывода ошибок в файл
-error_handler = logging.FileHandler("error.log")
-error_handler.setLevel(logging.ERROR)
-
-# Создаем форматтер для обработчика
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-error_handler.setFormatter(formatter)
-
-# Добавляем обработчик к логгеру
-logger.addHandler(error_handler)
+logging.config.dictConfig(dict_config)
+logger = logging.getLogger("module_logger")
 
 OPERATORS = {
     '+': add,
@@ -25,7 +15,6 @@ OPERATORS = {
 }
 
 Numeric = Union[int, float]
-
 
 def string_to_operator(value: str) -> Callable[[Numeric, Numeric], Numeric]:
     """
@@ -41,4 +30,3 @@ def string_to_operator(value: str) -> Callable[[Numeric, Numeric], Numeric]:
         raise ValueError("wrong operator value")
 
     return OPERATORS[value]
-
