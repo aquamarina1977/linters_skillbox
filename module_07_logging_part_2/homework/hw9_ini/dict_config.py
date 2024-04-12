@@ -19,10 +19,10 @@ dict_config = {
             'class': 'logging.StreamHandler',
             'level': 'WARNING',
             'formatter': 'consoleFormatter',
-            'args': 'exr://sys.stdout'
+            'stream': 'exr://sys.stdout'
         },
         'fileHandler': {
-            'class': 'FileHandler',
+            'class': 'logging.FileHandler',
             'level': 'DEBUG',
             'formatter': 'fileFormatter',
             'filename': 'logfile.log'
