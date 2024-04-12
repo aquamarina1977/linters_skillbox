@@ -1,4 +1,3 @@
-import sys
 
 dict_config = {
     'version': 1,
@@ -6,25 +5,27 @@ dict_config = {
     'formatters': {
         'fileFormatter': {
             'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            'datefmt': '%Y-%m-%dT%H:%M:%S%Z'
+            'datefmt': '%Y-%m-%dT%H:%M:%S%Z',
+            'class': 'logging.Formatter'
         },
         'consoleFormatter': {
             'format': '%(levelname)s - %(message)s',
-            'datefmt': '%Y-%m-%dT%H:%M:%S%Z'
+            'datefmt': '%Y-%m-%dT%H:%M:%S%Z',
+            'class': 'logging.Formatter'
         }
     },
     'handlers': {
         'consoleHandler': {
-            'class': 'StreamHandler',
+            'class': 'logging.StreamHandler',
             'level': 'WARNING',
             'formatter': 'consoleFormatter',
-            'args': (sys.stdout,)
+            'args': 'exr://sys.stdout'
         },
         'fileHandler': {
             'class': 'FileHandler',
             'level': 'DEBUG',
             'formatter': 'fileFormatter',
-            'args': ('logfile.log',)
+            'filename': 'logfile.log'
         }
     },
     'loggers': {
@@ -35,8 +36,7 @@ dict_config = {
         'appLogger': {
             'level': 'DEBUG',
             'handlers': ['consoleHandler', 'fileHandler'],
-            'qualname': 'appLogger',
-            'propagate': 0
+            'propagate': False
         }
     }
 }
