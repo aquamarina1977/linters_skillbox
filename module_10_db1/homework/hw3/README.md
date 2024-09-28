@@ -30,3 +30,52 @@
 ### Что оценивается
 * Python не производит никаких операций над полученными строками. В большей мере используются возможности SQL-запросов.
 * Все запросы делаются в рамках одного подключения к БД.
+
+Сколько записей (строк) хранится в каждой таблице?
+SELECT COUNT(*) AS cnt
+FROM table_1;
+Результат выполения скрипта:
+cnt: 2222;
+SELECT COUNT(*) AS cnt
+FROM table_2;
+Результат выполнения скрипта:
+cnt: 2999;
+SELECT COUNT(*) AS cnt
+FROM table_3;
+Результат выполнения скрипта:
+cnt: 3826;
+
+Сколько в таблице table_1 уникальных записей?
+WITH cte AS (SELECT DISTINCT value 
+FROM table_1 t)
+SELECT COUNT(*)
+FROM cte;
+Результат работы программы:
+cnt: 2222;
+
+Как много записей из таблицы table_1 встречается в таблице table_2?
+SELECT COUNT(*)
+FROM (
+    SELECT *
+    FROM table_1
+    INTERSECT
+    SELECT *
+    FROM table_2
+) AS result;
+Результат работы програмы:
+COUNT(*): 499;
+
+Как много записей из таблицы table_1 встречается в таблице table_2 и table_3?
+SELECT COUNT(*)
+FROM (
+    SELECT *
+    FROM table_1
+    INTERSECT
+    SELECT *
+    FROM table_2
+    INTERSECT
+    SELECT *
+    FROM table_3
+) AS result;
+Результат работы скрипта:
+COUNT(*): 326;

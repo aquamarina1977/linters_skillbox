@@ -15,4 +15,33 @@
 SQL-запросы к БД можно отправлять прямо в IDE. [Инструкция](https://www.jetbrains.com/help/pycharm/working-with-database-consoles.html).
 ### Что оценивается
 * Решение оформлено в виде Markdown-файла.
-* Имеются обоснования, содержащие конкретные цифры.
+* Имеются обоснования, содержащие конкретные цифры. 
+
+Телефоны какого цвета чаще всего покупают?
+SELECT p.colour, COUNT(c.phone_id) AS cnt
+FROM table_checkout c
+INNER JOIN table_phones AS p ON c.phone_id = p.id
+GROUP BY p.colour
+ORDER BY cnt DESC
+LIMIT 1;
+Результат выполнения скрипта: 
+colour: синий, cnt: 500
+
+Какие телефоны чаще покупают: красные или синие?
+SELECT p.colour, COUNT(c.phone_id) AS cnt
+FROM table_checkout c
+INNER JOIN table_phones AS p ON c.phone_id = p.id
+WHERE colour IN ('синий', 'красный')
+GROUP BY p.colour;
+colour: красный, cnt: 429;
+colour: синий, cnt: 500;
+
+Какой самый непопулярный цвет телефона?
+SELECT p.colour, COUNT(c.phone_id) AS cnt
+FROM table_checkout c
+INNER JOIN table_phones AS p ON c.phone_id = p.id
+GROUP BY p.colour
+ORDER BY cnt
+LIMIT 1;
+Результат работы скрипта:
+colour: золотой, cnt: 28;
