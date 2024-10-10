@@ -16,7 +16,6 @@ def log_bird(cursor: sqlite3.Cursor, bird_name: str, date_time: str) -> None:
         INSERT INTO birds_log (bird_name, date_time)
         VALUES (?, ?)
     """, (bird_name, date_time))
-
 def check_if_such_bird_already_seen(cursor: sqlite3.Cursor, bird_name: str) -> bool:
     # Проверяем, существует ли запись с такой птицей в БД
     cursor.execute("""
