@@ -1,16 +1,10 @@
 from flask import Flask, render_template, redirect, flash, request
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import InputRequired
-from models import init_db, get_all_books, add_book, get_books_by_author, DATA, increment_book_views, get_book_by_id
+from models import get_all_books, add_book, get_books_by_author, increment_book_views, get_book_by_id
+from forms import BookForm
+from config import SECRET_KEY
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
-
-class BookForm(FlaskForm):
-    book_title = StringField('Book title', validators=[InputRequired()])
-    author_name = StringField('Author full name', validators=[InputRequired()])
-    submit = SubmitField('Add new book')
+app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/books/form', methods=['GET', 'POST'])
 def get_books_form():
@@ -22,7 +16,6 @@ def get_books_form():
         flash('Book successfully added!', 'success')
         return redirect('/books')
     return render_template('add_book.html', form=form)
-
 
 @app.route('/books_by_author', methods=['GET'])
 def books_by_author_form():
@@ -50,7 +43,3 @@ def book_detail(book_id):
         return render_template('book_detail.html', book=book)
     flash('Book not found', 'error')
     return redirect('/books')
-
-if __name__ == '__main__':
-    init_db(DATA)
-    app.run(debug=True)
