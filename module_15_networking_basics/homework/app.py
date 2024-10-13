@@ -5,11 +5,10 @@ app = Flask(__name__)
 rooms = []
 bookings = []
 
-
 @app.route('/room', methods=['GET'])
 def get_rooms():
     available_rooms = [room for room in rooms if room['roomId'] not in [b['roomId'] for b in bookings]]
-    return jsonify({"rooms": available_rooms})
+    return jsonify({"rooms": available_rooms}) if available_rooms else jsonify({"rooms": []}), 200
 
 
 @app.route('/add-room', methods=['POST'])
