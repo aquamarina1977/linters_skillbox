@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS movie_direction;
 
 CREATE TABLE actors
 (
-	act_id               INT PRIMARY KEY AUTO_INCREMENT,
+	act_id               INTEGER PRIMARY KEY AUTOINCREMENT,
 	act_first_name       VARCHAR(50),
 	act_last_name        VARCHAR(50),
 	act_gender           VARCHAR(1)
@@ -15,21 +15,21 @@ CREATE TABLE actors
 
 CREATE TABLE movie
 (
-	mov_id              INT PRIMARY KEY AUTO_INCREMENT,
+	mov_id              INTEGER PRIMARY KEY AUTOINCREMENT,
 	mov_title           VARCHAR(50)
 );
 
 CREATE TABLE director
 (
-	dir_id              INT PRIMARY KEY AUTO_INCREMENT,
+	dir_id              INTEGER PRIMARY KEY AUTOINCREMENT,
 	dir_first_name      VARCHAR(50),
 	dir_last_name       VARCHAR(50)
 );
 
 CREATE TABLE movie_cast
 (
-	act_id              INT,
-	mov_id              INT,
+	act_id              INTEGER,
+	mov_id              INTEGER,
 	role                VARCHAR(50),
 	FOREIGN KEY (act_id) REFERENCES actors (act_id) ON DELETE SET NULL,
 	FOREIGN KEY (mov_id) REFERENCES movie (mov_id) ON DELETE SET NULL
@@ -37,15 +37,15 @@ CREATE TABLE movie_cast
 
 CREATE TABLE oscar_awarded
 (
-	oscar_id            INT PRIMARY KEY AUTO_INCREMENT,
-	mov_id              INT,
+	oscar_id            INTEGER PRIMARY KEY AUTOINCREMENT,
+	mov_id              INTEGER,
 	FOREIGN KEY (mov_id) REFERENCES movie (mov_id) ON DELETE SET NULL
 );
 
 CREATE TABLE movie_direction
 (
-	dir_id             INT,
-	mov_id             INT,
+	dir_id             INTEGER,
+	mov_id             INTEGER,
 	FOREIGN KEY (dir_id) REFERENCES director (dir_id) ON DELETE SET NULL,
 	FOREIGN KEY (mov_id) REFERENCES movie (mov_id) ON DELETE SET NULL
 );
