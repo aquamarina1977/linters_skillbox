@@ -7,11 +7,6 @@ from marshmallow import ValidationError
 app = Flask(__name__)
 api = Api(app)
 
-book_model = api.model('Book', {
-    'title': fields.String(required=True, description="Title of the book"),
-    'author_id': fields.Integer(required=True, description="ID of the author")
-})
-
 class BookList(Resource):
     def post(self):
         data = request.json
@@ -29,6 +24,11 @@ class BookList(Resource):
 
         book = add_book(new_book)
         return book_schema.dump(book), 201
+
+book_model = api.model('Book', {
+    'title': fields.String(required=True, description="Title of the book"),
+    'author_id': fields.Integer(required=True, description="ID of the author")
+})
 
 class BookResource(Resource):
     def get(self, book_id: int):
@@ -77,7 +77,6 @@ class BookResource(Resource):
             return schema.dump(book), 200
         return {"message": "Book not found"}, 404
 
-api.add_resource(BookResource, '/api/books/<int:book_id>')
 
 author_model = api.model('Author', {
     'first_name': fields.String(required=True, description="First name of the author"),
@@ -111,14 +110,7 @@ class AuthorResource(Resource):
             "books": book_schema.dump(books)
         }, 200
 
-    # Удаление автора вместе с его книгами (DELETE)
     def delete(self, author_id: int):
         if delete_author_and_books(author_id):
             return {"message": "Author and all associated books deleted successfully"}, 200
         return {"message": "Author not found"}, 404
-
-api.add_resource(AuthorResource, '/api/authors/<int:author_id>')
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
