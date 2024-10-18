@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: Books API
+  description: API для управления книгами
+  version: "1.0.0"
+paths:
+  /books:
+    post:
+      summary: Добавить новую книгу
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          description: Книга успешно добавлена
+        '400':
+          description: Ошибка валидации
+        '404':
+          description: Автор не найден
+  /books/{book_id}:
+    get:
+      summary: Получить информацию о книге по ID
+      parameters:
+        - in: path
+          name: book_id
+          schema:
+            type: integer
+          required: true
+          description: Идентификатор книги
+      responses:
+        '200':
+          description: Успешный ответ
+        '404':
+          description: Книга не найдена
+    put:
+      summary: Обновить книгу
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '200':
+          description: Книга успешно обновлена
+        '400':
+          description: Ошибка валидации
+        '404':
+          description: Книга или автор не найдены
+    delete:
+      summary: Удалить книгу
+      responses:
+        '200':
+          description: Книга успешно удалена
+        '404':
+          description: Книга не найдена
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Название книги
+        author_id:
+          type: integer
+          description: Идентификатор автора
+      required:
+        - title
+        - author_id
