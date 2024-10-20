@@ -136,7 +136,7 @@ def _get_random_assignment_text() -> str:
 
 
 def generate_database():
-    with sqlite3.connect('homework.db') as conn:
+    with sqlite3.connect('homework_advanced.db') as conn:
         cursor = conn.cursor()
         cursor.executescript(CREATE_DATABASE_QUERY)
         conn.commit()

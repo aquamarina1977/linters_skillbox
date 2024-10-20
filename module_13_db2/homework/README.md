@@ -252,7 +252,7 @@ import sqlite3
 
 
 def register(username: str, password: str) -> None:
-    with sqlite3.connect('../homework.db') as conn:
+    with sqlite3.connect('../homework_advanced.db') as conn:
         cursor: sqlite3.Cursor = conn.cursor()
         cursor.executescript(
             f"""
