@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+    <h1>Книги библиотеки</h1>
+    <div id="book-list">
+        {% if books %}
+            <ul>
+                {% for book in books %}
+                    <li>{{ book.name }} ({{ book.release_date }}) - Доступны: {{ book.count }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>В библиотеке нет книг.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Debtors{% endblock %}
+
+{% block content %}
+    <h1>Должны вернуть книги</h1>
+    <div id="debtors-list">
+        {% if debtors %}
+            <ul>
+                {% for debtor in debtors %}
+                    <li>{{ debtor.student }} должны вернуть "{{ debtor.book }}" за {{ debtor.days_with_book }} дней.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Нет студентов, обязанных вернуть книги.</p>
+        {% endif %}
+    </div>
+{% endblock %}

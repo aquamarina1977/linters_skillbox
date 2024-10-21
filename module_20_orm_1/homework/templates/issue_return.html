@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Issue/Return Books{% endblock %}
+
+{% block content %}
+    <h1>Выдать или вернуть книгу</h1>
+
+    <div id="issue-book">
+        <h2>Выдать книгу</h2>
+        <form id="issue-form">
+            <label for="book-id">ID книги:</label>
+            <input type="text" id="book-id" name="book_id" required>
+
+            <label for="student-id">ID студента:</label>
+            <input type="text" id="student-id" name="student_id" required>
+
+            <button type="submit">Выдать книгу</button>
+        </form>
+    </div>
+
+    <div id="return-book">
+        <h2>Вернуть книгу</h2>
+        <form id="return-form">
+            <label for="return-book-id">ID книги:</label>
+            <input type="text" id="return-book-id" name="book_id" required>
+
+            <label for="return-student-id">ID студента:</label>
+            <input type="text" id="return-student-id" name="student_id" required>
+
+            <button type="submit">Вернуть книгу</button>
+        </form>
+    </div>
+
+    <div id="response-message"></div>
+{% endblock %}
+
