@@ -154,29 +154,6 @@ def return_book():
         return jsonify({'message': 'Book returned successfully'}), 200
     return jsonify({'error': 'Record not found'}), 400
 
-"""@app.route('/search_books', methods=['GET'])
-def search_books():
-    query = request.args.get('q')
-    books = Book.query.filter(Book.name.ilike(f'%{query}%')).all()
-    if books:
-        return jsonify([{'id': b.id, 'name': b.name, 'release_date': b.release_date.isoformat()} for b in books])
-    else:
-        return jsonify({'message': 'No books found matching the query'}), 404"""
-
-
-'''@app.route('/search_books/<string:author_name>', methods=['GET'])
-def search_books(author_name):
-    books = Book.query.filter(Book.author.ilike(f'%{author_name}%')).all()
-
-    if books:
-        return jsonify([{
-            'id': b.id,
-            'name': b.name,
-            'release_date': b.release_date.isoformat()
-        } for b in books])
-    else:
-        return jsonify({'message': 'No books found matching the query'}), 404'''
-
 
 @app.route('/search_books/<string:keyword>', methods=['GET'])
 def search_books_by_keyword(keyword):
@@ -190,8 +167,3 @@ def search_books_by_keyword(keyword):
         } for b in books])
     else:
         return jsonify({'message': 'No books found matching the query'}), 404
-
-
-
-
-
