@@ -1,3 +1,4 @@
+from celery.result import AsyncResult
 from flask import Flask, request, jsonify
 from celery.result import GroupResult
 from celery import group
@@ -5,15 +6,37 @@ from celery import Celery
 from celery.schedules import crontab
 from image import blur_image
 from mail import send_email
-from config import SMTP_USER
+from config import SMTP_USER, SMTP_HOST, SMTP_PASSWORD, SMTP_PORT
 
 app = Flask(__name__)
 app.config.update(
-    CELERY_BROKER_URL='redis://localhost:6379/0',
-    CELERY_RESULT_BACKEND='redis://localhost:6379/0',
-    CELERY_TASK_RESULT_EXPIRES=3600,
-    CELERY_RESULT_PERSISTENT=True
+    broker_url='redis://localhost:6381/0',
+    result_backend='redis://localhost:6381/0',
+    task_result_expires=3600,
+    result_persistent=True,
+    smtp_user=SMTP_USER,
+    smtp_host=SMTP_HOST,
+    smtp_password=SMTP_PASSWORD,
+    smtp_port=SMTP_PORT
 )
+
+def make_celery(app):
+    celery = Celery(
+        app.import_name,
+        broker=app.config['broker_url'],
+        backend=app.config['result_backend']
+    )
+    celery.conf.update(app.config)
+    celery.conf.beat_schedule = {
+        'send-weekly-newsletter': {
+            'task': 'send_weekly_email',
+            'schedule': crontab(day_of_week=0, hour=8, minute=0),
+            'args': ('example@example.com',)
+        }
+    }
+    return celery
+
+celery = make_celery(app)
 
 @app.route('/blur', methods=['POST'])
 def blur_images():
@@ -22,7 +45,6 @@ def blur_images():
     task_group = group(
         blur_image_task.s(image.filename) for image in images
     )()
-    task_group.save()
     return jsonify({'task_id': task_group.id}), 202
 
 
@@ -31,7 +53,6 @@ def task_status(task_id):
     group_result = GroupResult.restore(task_id)
     if not group_result:
         return jsonify({'status': 'Task ID not found'}), 404
-
     completed_tasks = group_result.completed_count()
     total_tasks = len(group_result)
     return jsonify({
@@ -53,16 +74,6 @@ def unsubscribe():
     revoke_weekly_email.apply_async(args=[email])
     return jsonify({'message': 'Unsubscribed successfully'}), 200
 
-def make_celery(app):
-    celery = Celery(
-        app.import_name,
-        broker=app.config['CELERY_BROKER_URL'],
-        backend=app.config['CELERY_RESULT_BACKEND']
-    )
-    celery.conf.update(app.config)
-    return celery
-
-celery = make_celery(app)
 
 @celery.task
 def blur_image_task(image_path):
@@ -74,22 +85,9 @@ def blur_image_task(image_path):
 def send_weekly_email(email):
     send_email('weekly', email, 'newsletter.pdf')
 
-celery.conf.beat_schedule = {
-    'send-weekly-newsletter': {
-        'task': 'send_weekly_email',
-        'schedule': crontab(day_of_week=0, hour=8, minute=0),
-        'args': ('example@example.com',)
-    }
-}
-
 @celery.task
 def revoke_weekly_email(email):
-    """
-    Отписывает пользователя от рассылки. В зависимости от логики,
-    здесь может быть код для отмены запланированных рассылок или изменения данных пользователя.
-    """
     print(f"Пользователь {email} отписан от рассылки.")
 
 if __name__ == '__main__':
     app.run(debug=True)
-
