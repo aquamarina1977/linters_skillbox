@@ -1,0 +1,4 @@
+Flask==3.0.3
+celery==5.4.0
+SQLAlchemy==2.0.30
+pillow==10.3.0
