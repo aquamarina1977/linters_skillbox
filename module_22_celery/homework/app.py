@@ -34,7 +34,7 @@ def task_status(task_id):
         total_tasks = len(result)
         progress = (completed_tasks / total_tasks) * 100 if total_tasks else 0
         status = 'completed' if result.ready() else 'processing'
-        print(total_tasks, completed_tasks)
+
         return jsonify({
             'status': status,
             'progress': f"{progress:.2f}%"
