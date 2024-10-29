@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from celery import group
 from tasks import blur_image_task, revoke_weekly_email, send_weekly_email, send_images_email
 from celery_app import celery
+import os
+import uuid
 
 app = Flask(__name__)
 
@@ -14,7 +16,8 @@ def blur_images():
         return jsonify({'error': 'Invalid images or email parameter'}), 400
 
     task_group = group(
-        blur_image_task.s(image_path) for image_path in images
+        blur_image_task.s(image_path, f"blurred_{uuid.uuid4().hex}_{os.path.basename(image_path)}")
+        for image_path in images
     )
     result = task_group.apply_async()
 

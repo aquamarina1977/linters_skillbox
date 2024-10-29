@@ -1,21 +1,17 @@
-"""
-Здесь происходит логика обработки изображения
-"""
-
-from typing import Optional
-
+import os
 from PIL import Image, ImageFilter
 
 
-def blur_image(src_filename: str, dst_filename: Optional[str] = None):
-    """
-    Функция принимает на вход имя входного и выходного файлов.
-    Применяет размытие по Гауссу со значением 5.
-    """
-    if not dst_filename:
-        dst_filename = f'blur_{src_filename}'
+def blur_image(src_filename, dst_filename):
+    src_path = os.path.join("uploads", src_filename)
+    dst_path = os.path.join("uploads", dst_filename)
 
-    with Image.open(src_filename) as img:
-        img.load()
-        new_img = img.filter(ImageFilter.GaussianBlur(5))
-        new_img.save(dst_filename)
+    # Проверка существования файла
+    if not os.path.exists(src_path):
+        raise FileNotFoundError(f"Файл {src_path} не найден.")
+
+    with Image.open(src_path) as img:
+        blurred_img = img.filter(ImageFilter.GaussianBlur(5))
+        blurred_img.save(dst_path)
+        print(f"Изображение сохранено как {dst_path}")
+
