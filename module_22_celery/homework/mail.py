@@ -1,36 +1,31 @@
 import smtplib
-from email import encoders
-from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+from config import SMTP_USER, SMTP_PASSWORD, SMTP_HOST, SMTP_PORT
 
-from config import SMTP_HOST, SMTP_PORT, SMTP_PASSWORD, SMTP_USER
+def send_email(subject, recipient_email, attachment_path):
+    try:
 
+        msg = MIMEMultipart()
+        msg['From'] = SMTP_USER
+        msg['To'] = recipient_email
+        msg['Subject'] = subject
 
-def send_email(order_id: str, receiver: str, filename: str):
-    """
-    Отправляет пользователю `receiver` письмо по заказу `order_id` с приложенным файлом `filename`
+        body = "Please find the attached zip file with the processed images."
+        msg.attach(MIMEText(body, 'plain'))
 
-    Вы можете изменить логику работы данной функции
-    """
-    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+        with open(attachment_path, 'rb') as attachment:
+            part = MIMEApplication(attachment.read(), Name="processed_images.zip")
+            part['Content-Disposition'] = f'attachment; filename="processed_images.zip"'
+            msg.attach(part)
+
+        server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)
         server.starttls()
         server.login(SMTP_USER, SMTP_PASSWORD)
+        server.send_message(msg)
+        server.quit()
 
-        email = MIMEMultipart()
-        email['Subject'] = f'Изображения. Заказ №{order_id}'
-        email['From'] = SMTP_USER
-        email['To'] = receiver
-
-        with open(filename, 'rb') as attachment:
-            part = MIMEBase('application', 'octet-stream')
-            part.set_payload(attachment.read())
-
-        encoders.encode_base64(part)
-        part.add_header(
-            'Content-Disposition',
-            f'attachment; filename={filename}'
-        )
-        email.attach(part)
-        text = email.as_string()
-
-        server.sendmail(SMTP_USER, receiver, text)
+        print(f"Email sent successfully to {recipient_email} with attachment {attachment_path}")
+    except Exception as e:
+        print(f"Failed to send email: {e}")

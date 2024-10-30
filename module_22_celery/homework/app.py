@@ -1,9 +1,9 @@
+from celery_app import celery
 from flask import Flask, request, jsonify
 from celery import group
-from tasks import blur_image_task, revoke_weekly_email, send_weekly_email, send_images_email
-from celery_app import celery
-import os
+from tasks import blur_image_task, send_images_email, send_weekly_email, revoke_weekly_email
 import uuid
+import os
 
 app = Flask(__name__)
 
@@ -28,23 +28,17 @@ def blur_images():
     else:
         return jsonify({'error': 'Failed to initiate image processing'}), 500
 
-
 @app.route('/status/<task_id>', methods=['GET'])
 def task_status(task_id):
     result = celery.GroupResult.restore(task_id)
-    if result is not None:
+    if result:
         completed_tasks = result.completed_count()
         total_tasks = len(result)
         progress = (completed_tasks / total_tasks) * 100 if total_tasks else 0
         status = 'completed' if result.ready() else 'processing'
-
-        return jsonify({
-            'status': status,
-            'progress': f"{progress:.2f}%"
-        }), 200
+        return jsonify({'status': status, 'progress': f"{progress:.2f}%"}), 200
     else:
         return jsonify({'error': 'Invalid task ID'}), 404
-
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
