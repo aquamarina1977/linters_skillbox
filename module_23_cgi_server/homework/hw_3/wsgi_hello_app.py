@@ -2,6 +2,7 @@ import json
 from typing import Callable, Dict
 from wsgiref.simple_server import make_server
 import re
+import os
 
 
 class WSGIApp:
@@ -18,7 +19,7 @@ class WSGIApp:
 
         return decorator
 
-    def call(self, environ, start_response):
+    def __call__(self, environ, start_response):
         path = environ.get("PATH_INFO", "").rstrip("/")
         response_body = json.dumps({"error": "Not Found"}, indent=4)
         status = "404 Not Found"
@@ -48,7 +49,7 @@ def say_hello_with_name(name: str):
     return json.dumps({"response": f"Hello, {name}!"}, indent=4)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     with make_server("", 8000, app) as httpd:
         print("Serving on port 8000...")
         httpd.serve_forever()

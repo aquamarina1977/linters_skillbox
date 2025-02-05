@@ -2,24 +2,40 @@ import json
 from typing import Callable, Dict
 from wsgiref.simple_server import make_server
 import re
+import os
 
 
 class WSGIApp:
-    def init(self):
+    def __init__(self):
         self.routes: Dict[str, Callable] = {}
 
     def add_route(self, path: str):
         """ Декоратор для регистрации маршрутов """
+
         def decorator(func: Callable):
             if not hasattr(self, "routes"):
-                self.routes = {} 
+                self.routes = {}
             self.routes[path] = func
             return func
 
         return decorator
 
-    def call(self, environ, start_response):
+    def __call__(self, environ, start_response):
         path = environ.get("PATH_INFO", "").rstrip("/")
+        if path.startswith("/static/"):
+            file_name = path[len("/static/"):]
+            file_path = os.path.join(os.path.dirname(__file__), "Static", file_name)
+
+            if os.path.exists(file_path) and os.path.isfile(file_path):
+                with open(file_path, "rb") as f:
+                    content = f.read()
+
+                start_response("200 OK", [("Content-Type", "image/jpeg")])
+                return [content]
+            else:
+                start_response("404 Not Found", [("Content-Type", "text/plain")])
+                return [b"File not found"]
+
         response_body = json.dumps({"error": "Not Found"}, indent=4)
         status = "404 Not Found"
         headers = [("Content-Type", "application/json")]
@@ -48,7 +64,7 @@ def say_hello_with_name(name: str):
     return json.dumps({"response": f"Hello, {name}!"}, indent=4)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     with make_server("", 8000, app) as httpd:
         print("Serving on port 8000...")
         httpd.serve_forever()
