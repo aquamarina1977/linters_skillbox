@@ -51,3 +51,4 @@ async def save_links(links):
 if __name__ == "__main__":
     start_urls = {"https://habr.com/ru/feed/"}
     asyncio.run(crawl(start_urls))
+
