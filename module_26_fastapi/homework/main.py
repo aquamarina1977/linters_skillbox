@@ -12,14 +12,17 @@ async def get_db():
     async with async_session() as session:
         yield session
 
+
 @app.on_event("startup")
 async def startup_event():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
+
 @app.on_event("shutdown")
 async def shutdown():
     await engine.dispose()
+
 
 @app.get('/recipes/', response_model=List[schemas.RecipeOut])
 async def get_recipes(db: AsyncSession = Depends(get_db)):
@@ -27,9 +30,10 @@ async def get_recipes(db: AsyncSession = Depends(get_db)):
     result = await db.execute(query)
     return result.scalars().all()
 
+
 @app.get('/recipes/{recipe_id}', response_model=schemas.RecipeOut)
 async def get_recipe(recipe_id: int, db: AsyncSession = Depends(get_db)):
-    query = select(models.Recipe).where(models.Recipe.id == recipe_id)
+    query = select(models.Recipe).where(recipe_id == models.Recipe.id)
     result = await db.execute(query)
     recipe = result.scalar_one_or_none()
     if not recipe:
@@ -37,6 +41,7 @@ async def get_recipe(recipe_id: int, db: AsyncSession = Depends(get_db)):
     recipe.views += 1
     await db.commit()
     return recipe
+
 
 @app.post('/recipes/', response_model=schemas.RecipeOut)
 async def create_recipe(recipe: schemas.RecipeIn, db: AsyncSession = Depends(get_db)):
