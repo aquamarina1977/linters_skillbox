@@ -11,7 +11,7 @@ from flask import Flask
 app = Flask(__name__)
 
 def get_available_pages():
-    return [endpoint for endpoint in app.url_map.iter_rules() if endpoint.endpoint != 'static']
+    return [endpoint for endpoint in app.url_map.iter_rules() if endpoint.endpoint != 'Static']
 
 def generate_links(pages):
     links = ''

@@ -1,10 +1,10 @@
 import os
 from flask import Flask, render_template, send_from_directory
 
-static_folder = "static"
+static_folder = "Static"
 root_dir = os.path.dirname(os.path.abspath(__file__))
 template_folder = os.path.join(root_dir, "templates")
-static_directory = os.path.join(root_dir, "static")
+static_directory = os.path.join(root_dir, "Static")
 
 app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
 
@@ -14,7 +14,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/static/<path:filename>")
+@app.route("/Static/<path:filename>")
 def send_static(filename):
     return send_from_directory(static_directory, filename)
 

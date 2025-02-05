@@ -15,7 +15,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/static/<path:path>")
+@app.route("/Static/<path:path>")
 def send_static(path):
     assert False
 
